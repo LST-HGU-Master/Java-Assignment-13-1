@@ -34,4 +34,14 @@ public class RailwayLine {
             "新橋",
             "ゆうらくちょう"
     ));
+    void printStations () {
+        int n = this.stations.size();
+        int count=1;
+        System.out.print("[");
+        for( String stn: stations) {
+            System.out.print(stn);
+            if (count++ < n)  System.out.print(",");
+        }
+        System.out.print("]");
+    }
 }
