@@ -11,15 +11,15 @@
 | set    | int n, String str | void  | n番目をstrに上書き |
 | remove | int n | void  | n番目の要素を削除   |
 
-(補足説明) RailwayLineクラスのstationsはprivate宣言されており、main()から直接アクセスすることができない。そこで、上記のメソッドに加えて、stationsのgetterメソッド `getStations()` を追加し、main()メソッドからは `yamanote.getStations().add(・・・)` のような形でアクセスするようにしよう。
+(補足説明) RailwayLineクラスのstationsはprivate宣言されており、mainメソッドから直接アクセスすることができない。そこで、上記のメソッドに加えて、stationsのgetterメソッド `getStations()` を追加し、mainメソッドからは `yamanote.getStations().add(・・・)` のような形でアクセスするようにしよう。
 
-また、以下の３点を修正するProgD１.mainメソッドを作成し、下に示す実行結果と同じ駅名・駅順になることを確認すること。
+また、以下の３点を修正するProgD1.mainメソッドを作成し、下に示す実行結果と同じ駅名・駅順になることを確認すること。
 
 - 「品川」と「田町」の間に「高輪ゲートウェイ」駅を追加
 - 「高田馬場」が2つあるので1つ削除する
 - 「ゆうらくちょう」を「有楽町」に変更する
 
-### RailswayLine.java
+### RailwayLine.java
 ```java
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -81,7 +81,7 @@ public class ProgD1 {
 }
 ```
 
-### ProgD１.main()の実行結果
+### ProgD1.main()の実行結果
 ```
 [東京, 神田, 秋葉原, 御徒町, 上野, 鶯谷, 日暮里, 西日暮里, 田端, 駒込, 巣鴨, 大塚, 池袋, 目白, 高田馬場, 新大久保, 新宿, 代々木, 原宿, 渋谷, 恵比寿, 目黒, 五反田, 大崎, 品川, 高輪ゲーウェイ, 田町, 浜松町, 新橋, 有楽町]
 ```
