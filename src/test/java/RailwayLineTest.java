@@ -7,10 +7,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/**
+ * @version (20220621)
+ *  注意）このテストコードは RailwayLineクラスに３つのメソッドが定義されるまでエラーとなる
+ */
 public class RailwayLineTest {
 
-    ArrayList<String> stations = new ArrayList<String>(Arrays.asList(
+    private ArrayList<String> stations = new ArrayList<String>(Arrays.asList(
             "東京",
             "神田",
             "秋葉原",
@@ -52,7 +55,7 @@ public class RailwayLineTest {
             Field stations = y.getClass().getDeclaredField("stations");
 
             // assertion
-            assertEquals(Modifier.PRIVATE, stations.getModifiers());
+            assertEquals(Modifier.PRIVATE, stations.getModifiers(),"stationsのprivate宣言がなくなっています!");
 
             // action
             stations.setAccessible(true);
@@ -93,11 +96,11 @@ public class RailwayLineTest {
                     "新橋",
                     "有楽町"
             ));
-            assertEquals(expected, stations.get(y));
+            assertEquals(expected, stations.get(y),"addメソッドの処理が不正です!");
 
         } catch (Exception e) {
             // なにかしら例外がでたらfailにする
-            fail();
+            fail("教員に相談してください!");
         }
     }
 
@@ -110,7 +113,7 @@ public class RailwayLineTest {
             Field stations = y.getClass().getDeclaredField("stations");
 
             // assertion
-            assertEquals(Modifier.PRIVATE, stations.getModifiers());
+            assertEquals(Modifier.PRIVATE, stations.getModifiers(),"stationsのprivate宣言がなくなっています!");
 
             // action
             stations.setAccessible(true);
@@ -150,11 +153,11 @@ public class RailwayLineTest {
                     "新橋",
                     "有楽町"
             ));
-            assertEquals(expected, stations.get(y));
+            assertEquals(expected, stations.get(y), "setメソッドの処理が不正です!");
 
         } catch (Exception e) {
             // なにかしら例外がでたらfailにする
-            fail();
+            fail("教員に相談してください!");
         }
     }
 
@@ -167,7 +170,7 @@ public class RailwayLineTest {
             Field stations = y.getClass().getDeclaredField("stations");
 
             // assertion
-            assertEquals(Modifier.PRIVATE, stations.getModifiers());
+            assertEquals(Modifier.PRIVATE, stations.getModifiers(),"stationsのprivate宣言がなくなっています!");
 
             // action
             stations.setAccessible(true);
@@ -206,11 +209,11 @@ public class RailwayLineTest {
                     "新橋",
                     "有楽町"
             ));
-            assertEquals(expected, stations.get(y));
+            assertEquals(expected, stations.get(y), "removeメソッドの処理が不正です!");
 
         } catch (Exception e) {
             // なにかしら例外がでたらfailにする
-            fail();
+            fail("教員に相談してください!");
         }
     }
 }
