@@ -10,6 +10,7 @@
 | add    | int n, String str | void  | n番目にstrを挿入  |
 | set    | int n, String str | void  | n番目をstrに上書き |
 | remove | int n | void  | n番目の要素を削除   |
+
 (補足説明) RailwayLineクラスのstationsはprivate宣言されているため、main()から直接アクセスすることができない。そこで、上記の３つのメソッドに加えて、stationのgetterメソッドとして'getStations()'を追加し、main()メソッドからは'yamanote.getStations().add(・・・)'のような形でアクセスするようにしよう。
 
 また、以下の３点を修正するProgD１.mainメソッドを作成し、下に示す実行結果と同じ駅名・駅順になることを確認すること。
