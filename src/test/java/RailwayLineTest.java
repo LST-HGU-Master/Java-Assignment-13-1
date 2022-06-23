@@ -4,11 +4,12 @@ import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 import java.io.*;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 /**
- * @version (20220621)
+ * @version (20220623)
  *  注意）このテストコードは RailwayLineクラスに３つのメソッドが定義されるまでエラーとなる
  */
 public class RailwayLineTest {
@@ -46,6 +47,27 @@ public class RailwayLineTest {
             "有楽町"
     ));
 
+    @Test
+    public void testGetStations(){
+        // action
+        RailwayLine y = new RailwayLine();
+        try {    
+            Method getStn = y.getClass().getDeclaredMethod("getStations");
+            Field field = y.getClass().getDeclaredField("stations");
+            field.setAccessible(true);
+            // assertion
+            assertEquals(field.get(y), getStn.invoke(y),"getStations()の戻り値が不正です!");
+        } catch  (NoSuchMethodException nsme) {
+            fail("RailwayLineクラスにgetStations()が定義されていない、もしくはpublic宣言されていません! ");
+        } catch (IllegalAccessException iae) {
+            fail("RailwayLineクラスのgetStations()がpublic宣言されていません! ");
+        } catch(NoSuchFieldException e) {
+            fail("RailwayLineクラスにフィールドstationsが宣言されていません!");
+        }catch (java.lang.reflect.InvocationTargetException ite) {
+            fail("getStations()内で例外が発生しました"); // 教員対応
+        }
+    }
+    
     @Test
     public void testAdd()
     {
