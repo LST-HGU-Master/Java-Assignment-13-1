@@ -11,7 +11,7 @@
 | set    | int n, String str | void  | n番目をstrに上書き |
 | remove | int n | void  | n番目の要素を削除   |
 
-(補足説明) RailwayLineクラスのstationsはprivate宣言されており、mainメソッドから直接アクセスすることができない。そこで、上記のメソッドに加えて、stationsのgetterメソッド `getStations()` を追加し、mainメソッドからは `yamanote.getStations().add(・・・)` のような形でアクセスするようにしよう。
+(補足説明) RailwayLineクラスのArrayList型フィールドstationsははprivate宣言されており、mainメソッドから直接アクセスすることができない。そこで、RailwayLineクラスに上記のメソッドを作成して、その中からstations.remove(・・・)のようにArrayListクラスのメソッドを呼び出すことにする。mainメソッドからは yamanote.remove(1) のような形でstationsの要素の追加や削除をしよう。
 
 また、以下の３点を修正するProgD1.mainメソッドを作成し、下に示す実行結果と同じ駅名・駅順になることを確認すること。
 
