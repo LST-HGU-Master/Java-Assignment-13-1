@@ -46,28 +46,7 @@ public class RailwayLineTest {
             "新橋",
             "有楽町"
     ));
-
-    @Test
-    public void testGetStations(){
-        // action
-        RailwayLine y = new RailwayLine();
-        try {    
-            Method getStn = y.getClass().getDeclaredMethod("getStations");
-            Field field = y.getClass().getDeclaredField("stations");
-            field.setAccessible(true);
-            // assertion
-            assertEquals(field.get(y), getStn.invoke(y),"getStations()の戻り値が不正です!");
-        } catch  (NoSuchMethodException nsme) {
-            fail("RailwayLineクラスにgetStations()が定義されていない、もしくはpublic宣言されていません! ");
-        } catch (IllegalAccessException iae) {
-            fail("RailwayLineクラスのgetStations()がpublic宣言されていません! ");
-        } catch(NoSuchFieldException e) {
-            fail("RailwayLineクラスにフィールドstationsが宣言されていません!");
-        }catch (java.lang.reflect.InvocationTargetException ite) {
-            fail("getStations()内で例外が発生しました"); // 教員対応
-        }
-    }
-    
+   
     @Test
     public void testAdd()
     {
