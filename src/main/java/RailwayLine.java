@@ -40,7 +40,7 @@ public class RailwayLine {
         System.out.print("[");
         for( String stn: stations) {
             System.out.print(stn);
-            if (count++ < n)  System.out.print(",");
+            if (count++ < n)  System.out.print(", ");
         }
         System.out.print("]");
     }
